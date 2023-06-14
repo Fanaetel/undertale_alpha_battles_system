@@ -40,6 +40,7 @@
     {"id":{"name":"oChoseMon","path":"objects/oChoseMon/oChoseMon.yy",},},
     {"id":{"name":"Object4","path":"objects/Object4/Object4.yy",},},
     {"id":{"name":"Object5","path":"objects/Object5/Object5.yy",},},
+    {"id":{"name":"attack","path":"sprites/attack/attack.yy",},},
     {"id":{"name":"Mont","path":"sprites/Mont/Mont.yy",},},
     {"id":{"name":"invo_all_itemandName","path":"scripts/invo_all_itemandName/invo_all_itemandName.yy",},},
     {"id":{"name":"Soul","path":"sprites/Soul/Soul.yy",},},

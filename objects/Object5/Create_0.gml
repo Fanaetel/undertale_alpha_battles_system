@@ -1,2 +1,2 @@
-dmg=20;
-num=0;
+Spd=false;
+Attackfake=0;

@@ -6,6 +6,7 @@ if (D) num-=1;
 if (Z) 
 switch (num){
  case 0:	
-  instance_create_layer(40,200,"Instances_1",Object4);	
-break;	
+  instance_create_depth(40,200,-9,Object4);	
+  instance_destroy(oChoseMon);
+  break;
 }
