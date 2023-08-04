@@ -1,0 +1,1 @@
+player.hurt(dmg)

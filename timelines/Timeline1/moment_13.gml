@@ -1,3 +1,3 @@
-instance_destroy(Object4);
-instance_destroy(Object5);
-instance_create_depth(70,240,-9999,oSoul);
+instance_destroy(o_encouter_attack);
+instance_destroy(o_encouter_attack_pointer);
+instance_create_depth(70,240,-9999,o_soul);

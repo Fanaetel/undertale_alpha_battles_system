@@ -6,6 +6,6 @@
   "isDnD": false,
   "parent": {
     "name": "Key",
-    "path": "folders/Scripts/Key.yy",
+    "path": "folders/Scripts/System/Key.yy",
   },
 }
