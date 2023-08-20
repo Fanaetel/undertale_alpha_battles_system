@@ -36,6 +36,7 @@ set_size  = function(__width,__height){
 	height = __height;	
 };
 
+
 set_size_dialogue= function(){
  set_size(dialogue_width,dialogue_height);	
 };

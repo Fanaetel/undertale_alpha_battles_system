@@ -38,5 +38,5 @@ on_dialogue_end = function () {
 
  }
  current_dialogue = [
-   "[c_yellow]Ты урок ",
+   "Ты урок ",
 ];

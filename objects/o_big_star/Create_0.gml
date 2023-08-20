@@ -2,8 +2,4 @@ event_inherited();
 
 dmg = undefined;
 
-velocity = Vestor2();
-
-acceleration = Vestor2();
-
-accel_force = 0.001
+_speed = Vestor2( -1, 1 );

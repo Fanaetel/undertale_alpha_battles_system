@@ -1,24 +1,31 @@
 image_angle += 2;
 
-// Радиус круга (в пикселях)
-var radius = 100;
+var spaw = function () {
+var _angle, _lengthdir_y, _lengthdir_x, radius, inst_gaster_blaster, num
+	
+	var i = 0
+	 num = 0
+	
+	repeat (8){
 
-// Угол (в радианах)
-var angle = 0;
+	 radius = 25 
+	
+ 	_cos =  i * radius / cos(45) 
+	_sin =  i * radius / sin(45) 
+	 
+	_angle = point_distance(0, 0, _cos, _sin)
+	_lengthdir_x = lengthdir_x(radius, _angle)
+	_lengthdir_y = lengthdir_y(radius, _angle)
+	
+	 instance_create_depth(x + _lengthdir_x, y + _lengthdir_y, encouter_depth.attack, o_star);
 
-// Шаг угла (это будет определять, насколько далеко друг от друга будут расположены объекты)
-var angle_step = 130;
-
-
-var new_x = x + radius * cos(degtorad(angle));
-var new_y = y + radius * sin(degtorad(angle));
-
+	i++ 
+	
+	}
+}
 if (place_meeting(x, y, o_arean_collision)) {
-	ScrSpaw(new_x , new_y, o_star, 7, 10) 
-	if (instance_number(o_star) == 10)
+	spaw()
 	instance_destroy()
 }
-
-
-x -= 5;
-y += 3;
+x += _speed.x
+y += _speed.y

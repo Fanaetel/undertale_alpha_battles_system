@@ -59,7 +59,21 @@ function ClassVector2(x, y)	constructor {
 
 }
 
-function position_add (_vector2, _object = id){
+function position_add (_vector2, _object = id)	{
 	_object.x += _vector2.x;
 	_object.y += _vector2.y;	
+}
+
+function alig_force (obj = object_index) {
+	var _vec, _count;	
+	_vec = Vestor2().vector2_zero();
+	_count = 0;
+	with (obj) {
+		if (id == other.id) continue;	
+		_vec.add(velocity);
+		_count ++;
+	}
+	
+	return _vec;
+	
 }

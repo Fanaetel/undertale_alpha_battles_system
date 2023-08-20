@@ -3,7 +3,7 @@ if (!variable_instance_exists(id,"encouter"))
  
  arena = encouter.arena;
  
- soul = instance_create_depth(arena.x, arena.y, encouter_depth.soul, o_soul,{encouter : encouter });
+ soul = instance_create_depth(arena.x, arena.y, encouter_depth.soul, o_soul,{ encouter : encouter });
  
  pause = true;
  

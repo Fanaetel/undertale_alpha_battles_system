@@ -1,5 +1,1 @@
-scribble(dialogue[dialogue_index])
-	.transform(2, 2, 0)
-	.line_height(16, 16)
-	.wrap(text_max_width)
-	.draw(text_x, text_y, typist);
+draw_text_ext(text_x, text_y,dialogue[dialogue_index],0 ,text_max_width )

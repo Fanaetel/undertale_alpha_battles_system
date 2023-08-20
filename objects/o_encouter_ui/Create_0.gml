@@ -2,22 +2,13 @@ depth = encouter_depth.ui;
 _input = encouter._input;
 arena  = encouter.arena;
 
-typist = scribble_typist();
-typist.in(0.5, 0);
-typist.character_delay_add("!", 250);
-typist.character_delay_add("?", 250);
-typist.character_delay_add(".", 200);
-typist.character_delay_add(",", 150);
 
 _draw_text = function (){
 var text_offset_x = 20;
 var text_offset_y = 10;	
+
  draw_text(arena.x - arena.width / 2 + text_offset_x ,arena.y - arena.height / 3 + text_offset_y,$"{encouter.text}")
- scribble(encouter.text)
- .transform(2, 2, 0)
-		.wrap(arena.width - text_offset_x)
-		.line_height(16, 16)
-		.draw(arena.x - arena.width / 2 + text_offset_x, arena.y - arena.height / 2 + text_offset_y, typist);
+	
 };
 
 draw_buttons = function(){
@@ -27,6 +18,7 @@ var buttons_offset_x = 40;
 
 var soul_offset_x = [ -40, -40, -40, -40];
 var soul_offset_y = 0 ;
+	
 	var buttons= [
 	spr_fight,
 	spr_act,
@@ -49,10 +41,9 @@ i++
 
 draw_hud = function () {
  var player = encouter.player;	
- scribble(player.name)
- .draw(40,385)
- scribble($"LV {player.lv}")
- .draw(170,385);
+
+ draw_text(40,385, player.name)
+ draw_text(170,385, player.lv)
  
  draw_sprite(spr_encouter_bar_background,0,290,395);
  if (encouter.state == encouter_state.in_menu && encouter.selected_menu == encouter_menu.item){
@@ -64,8 +55,7 @@ draw_hud = function () {
 }
 
 draw_sprite_field(spr_encouter_bar_hp,0,290,383, player.hp / player.MaxHp);
-scribble($"{player.hp} / {player.MaxHp}")
- .draw(400,385);
+ draw_text(400, 385, $"{player.hp} / {player.MaxHp}" )
 }
 draw_menu = function () {
  switch (encouter.selected_menu) {
@@ -89,7 +79,8 @@ draw_menu = function () {
 draw_menu_fight =  function () {
  var text_offset_x = 34;	
  var text_offset_y = 10;	
-  text = "";	
+	 text = "";
+	 
 	array_foreach(encouter.enemies, function(enemy, i) {
 	var bar_offset_x = 6;	
 	var bar_offset_y = 4;	
@@ -109,10 +100,8 @@ draw_menu_fight =  function () {
 	else text += "* ";	
 	text += name + "\n";
 });
-scribble(text)
-.transform(2,2,0)
-.line_height(16,16)
-.draw(arena.x - arena.width / 2 + text_offset_x, arena.y - arena.height / 2 + text_offset_y)
+
+draw_text(arena.x - arena.width / 2 + text_offset_x, arena.y - arena.height / 2 + text_offset_y, text)
 }
 
 draw_menu_actions = function (){
@@ -125,31 +114,31 @@ draw_menu_actions = function (){
 	var i = 0
    repeat (array_length(actions)) {
 	var action = actions[i];  
-	var render = "";  
+	var render = ""; 
+	
 	var text_x = draw_x;  
 	var text_y = draw_y;
 	
-	if (i == index)
-	   render +=" ";
-   else render += "* ";
+	 render += i == index ?	" " :  "* ";
 	
 	if ((i + 1) % 2 == 0) 
 	 text_x += 260;
 	 
 	 text_y += floor(i / 2) * 28;
 	 render += action.name;
-	i++ 
-	 scribble(render)
-	 .transform(2,2,0)
-	 .draw(text_x,text_y);
+	 
+	 i++ 
+
+	 draw_text(text_x,text_y, render);
   }
   
  var soul_x = draw_x + 8 + (((index + 1 ) % 2 == 0) ? 260 : 0);
  var soul_y = draw_y + 34 + floor(index / 2) * 28;
  draw_sprite(soul_sprite,0,soul_x,soul_y);
 }
+
 draw_menu_act = function () {
-var text_offset_x = 4;
+	var text_offset_x = 4;
 	var text_offset_y = 10;
 	text = "";
 
@@ -162,42 +151,41 @@ var text_offset_x = 4;
 		var soul_offset_y = 0;
 		var name = enemy.name;
 		
-		// Draw soul & generate text
+	
 		if (_input.selected_sub_menu == i) {
-	draw_sprite(spr_soul,0,bar_draw_x + soul_offset_x, bar_draw_y + soul_offset_y);
-	text += "   ";
-	}
-	else text += " *  ";
-	text += name + "\n";
+		draw_sprite(spr_soul,0,bar_draw_x + soul_offset_x, bar_draw_y + soul_offset_y);
+	
+		text += "   ";
+		}
+		else text += " *  ";
+		text += name + "\n";
 	});
 	
-	scribble(text)
-		.transform(2, 2, 0)
-		.line_height(16, 16)
-		.draw(arena.x - arena.width / 2 + text_offset_x, arena.y - arena.height / 2 + text_offset_y);
+		draw_text(arena.x - arena.width / 2 + text_offset_x, arena.y - arena.height / 2 + text_offset_y, text);
 
 }
 
 draw_menu_item = function () {
-var player = encouter.player;	
-var index = _input.selected_sub_menu;	
-var text = " ";	
+ var player = encouter.player;	
+ var index = _input.selected_sub_menu;	
+ var text = " ";	
 	
-	var i = 0;
+ var i = 0;
  repeat  (array_length(player.items)) {
+	 
  if (i != 0) 
 	text += " ";
- text += index == i ? " " : "*";
- i++
+ 
+    text += index == i ? " " : "*";
+ 
+    i++
 }
-var index = _input.selected_sub_menu;
-var item  = player.items[index];
-draw_sprite(spr_soul,0,arena.x - arena.width / 2 + 28 + 32 * index, arena.y + arena.height / 2 - 40);
+	var index = _input.selected_sub_menu;
+	var item  = player.items[index];
+	draw_sprite(spr_soul,0,arena.x - arena.width / 2 + 28 + 32 * index, arena.y + arena.height / 2 - 40);
 
-scribble(string("* {0}\n* Востонавливает: [c_green]{1}[c_white]ОЗ\n{2}", item.name, item.heal, text))
-.line_height(16, 16)
-.transform(2, 2, 0)
-.draw(arena.x - arena.width / 2 + 20, arena.y - arena.height / 2 + 10);
+
+draw_text(arena.x - arena.width / 2 + 20, arena.y - arena.height / 2 + 10,$"* {item.name}\n*{item.heal} ОЗ\n{text}");
 }
 
 draw_menu_mercy = function () {
@@ -205,24 +193,22 @@ var soul_sprite = spr_soul;
 var render = " ";	
 var actions = encouter.mercy_actions;	
 
-var i = 0
+  var i = 0
   repeat ( array_length(actions)) {	
- var action = actions[i];	
- var name = action.name;
+  var action = actions[i];	
+  var name = action.name;
  
- var draw_x = arena.x - arena.width / 2 + 24;
- var draw_y = arena.y - arena.height / 2 + 36 + 32 * i;
+  var draw_x = arena.x - arena.width / 2 + 24;
+  var draw_y = arena.y - arena.height / 2 + 36 + 32 * i;
  
- if (_input.selected_sub_menu == i){
+ if (_input.selected_sub_menu == i) {
    draw_sprite(soul_sprite,0,draw_x,draw_y);	 
 	 render +="  ";
  }
  else render += "* ";
  render += name + "\n";
  i++
- scribble(render)
-		.transform(2, 2, 0)
-		.line_height(16, 16)
-		.draw(arena.x - arena.width / 2 + 20, arena.y - arena.height / 2 + 10);
+
+draw_text(arena.x - arena.width / 2 + 20, arena.y - arena.height / 2 + 10,render);
  }
 };

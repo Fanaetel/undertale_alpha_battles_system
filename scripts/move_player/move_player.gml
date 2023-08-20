@@ -4,18 +4,6 @@ enum devicse {
  	keyboard,	
 }
 
-enum WSAD{
- 	left,
-	right,
-	up,
-	down,
-	Z,
-	X,
-	one,
-	two,
-	ther,
-}
-
 global.devices	=	struct_empty;
 global.inputs	=	struct_empty;
 

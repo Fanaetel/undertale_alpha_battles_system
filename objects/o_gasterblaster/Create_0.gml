@@ -3,8 +3,7 @@ y_dir	= y;
 x_start = x;
 y_start = y;
 
-
-blast_max_scale = 3;
+blast_max_scale = 1;
 
 time = 0;
 

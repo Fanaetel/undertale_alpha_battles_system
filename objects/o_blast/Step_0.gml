@@ -12,3 +12,8 @@ if (stage == 1 && image_alpha > 0) {
 }
  else if (stage == 1) 
 	instance_destroy();
+	
+if (place_meeting(x,y, o_soul)) {
+	player.hurt(dmg)	
+	
+}

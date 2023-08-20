@@ -3,17 +3,18 @@ time ++;
 switch (index) {
   case 0 :	
 	if (time == 1)
-		arena.set_size(300,200);
+	  arena.set_size(200,200);
 	 
-	if (time > 400)
+	 if (time > 500)
 		destroy();	
 	break;
  	
 };
 
+var _bor =  arena.border_instance
+	
 switch (time) {
-	case 30 :
-		ScrSpaw(500, 200, o_gasterblaster, 3, 10)
-		break;
-
+	case 10 :
+	instance_create_depth(arena.x , arena.y  , encouter_depth.attack, o_time_gaset)
+	break;
 }

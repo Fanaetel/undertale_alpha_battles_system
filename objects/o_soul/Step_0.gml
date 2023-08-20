@@ -12,14 +12,14 @@ var hor	 =	(input_held(WSAD.right)	- input_held(WSAD.left));
     y += _yy;	
 	
 	if (place_meeting(x + _xx, y, o_wall)) {
-		while (place_meeting(x + sign(_xx), y, o_wall)) {
+		while (!place_meeting(x + sign(_xx), y, o_wall)) {
 			x += _xx	
 		}
-	 x -= _xx;
+	 x -= _xx
 	}
 	
 	if (place_meeting(x, y + _yy, o_wall)) {
-		while (place_meeting(x, y + sign(_yy), o_wall)) {	
+		while (!place_meeting(x, y + sign(_yy), o_wall)) {	
 			y += _yy;	
 		}
 		y -= _yy;	
@@ -29,29 +29,8 @@ var hor	 =	(input_held(WSAD.right)	- input_held(WSAD.left));
 position.x = hor
 position.y = ver
 
-
-velocity.add(steering)
-
- move_and_collision (position, spd)
+move_and_collision (position, spd)
 
 position.add(velocity)
 
 velocity2_zero.set(0, 0)
-	
-if (input_held(WSAD.one))
-	soul_state.blue = true
-
-if (input_held(WSAD.two))
-	soul_state.yellow = true;
-
-if (soul_state.blue == true) {
-	y = min(y,collision_down);
-	y++ 
-} 
-
-if (soul_state.yellow == true)	{
-	image_yscale = -1;
-	
-	if (input_released(WSAD.Z))
-		instance_create_depth(other.x,other.y,-9999,o_shot)
-}

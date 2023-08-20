@@ -1,16 +1,16 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "o_gasterblaster",
+  "name": "o_time_gaset",
   "eventList": [
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,},
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,},
   ],
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "gasterblaster",
-    "path": "folders/Objects/Enemy_attack/gasterblaster.yy",
+    "name": "Enemy_attack",
+    "path": "folders/Objects/Enemy_attack.yy",
   },
   "parentObjectId": null,
   "persistent": false,
@@ -28,10 +28,7 @@
   "physicsStartAwake": true,
   "properties": [],
   "solid": false,
-  "spriteId": {
-    "name": "spr_grabat",
-    "path": "sprites/spr_grabat/spr_grabat.yy",
-  },
+  "spriteId": null,
   "spriteMaskId": null,
   "visible": true,
 }

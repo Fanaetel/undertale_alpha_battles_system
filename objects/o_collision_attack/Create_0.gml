@@ -2,11 +2,12 @@ arena = o_encouter_arena
 
 depth  = encouter_depth.attack;
 
-player = o_encouter_snowdin.player 
+ encouter = o_encouter_snowdin
 
-position = o_soul.position
+soul	 = o_soul
 
-velocity2_zero = o_soul.velocity2_zero
+player = encouter.player 
 
+position = soul.position
 
-dmg = 1;
+velocity2_zero = soul.velocity2_zero

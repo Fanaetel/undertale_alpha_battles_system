@@ -1,9 +1,9 @@
 player = new Class_Player("???",30,30,1,20,40,[]); 
 
-_input = instance_create(o_encouter_input,{ encouter : id});
-arena = instance_create_depth(320,299,0,o_encouter_arena);
-ui = instance_create(o_encouter_ui,{ encouter : id});
-fight = noone;
+_input = instance_create(o_encouter_input, { encouter : id});
+arena  = instance_create_depth(320, 299, 0, o_encouter_arena);
+ui	   = instance_create(o_encouter_ui, { encouter : id});
+fight  = noone;
 
 enemies = [];
 enemies_list = [];
@@ -65,10 +65,12 @@ on_acting = function(act_index){
 	
 }
 selected_menu = encouter_menu.no
+
 select_menu = function (index) {
 	selected_menu = index;
 	set_state(index == encouter_menu.no ? encouter_state.selecting : encouter_state.in_menu);
 };
+
 on_dialogue_end = function(state){
  set_state(state);	
 };
